@@ -1,0 +1,60 @@
+.welcome-header {
+  margin: 90px 0px; /* welcome-header__title과 18:43 간격, welcome-header__text와 input간격 상하90px로 같게 */
+  text-align: center; /* h1, p tag같은 텍스트를 다루는 tag들을 가운데 정렬 할 때는 text-align:center 사용 */
+  display: flex; /* welcome-header__title과  welcome-header__text 두개다 center에 오게 하고 싶음 */
+  flex-direction: column; /* welcome-header__title과  welcome-header__text이 좌우로 놓이는게 아니라 위아래로 놓이게 하고 싶음 */
+  align-items: center; /* welcome-header__title과  welcome-header__text 교차축을 이용해 center에 위치하게 */
+  font-weight: 600;
+}
+.welcome-header__title {
+  margin-bottom: 20px; /* welcome to KakaoClone과 If you have~ 간격 */
+  font-size: 25px; /* welcome to Kokoa~ 글씨크기 크게 */
+}
+.welcome-header__text {
+  width: 60%; /* text 너비 제한 */
+  opacity: 0.7; /* text 글씨 색 회색으로 (color를 회색으로 지정해도 상관 없음) */
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column; /* input id, password, button 다 세로로 위치하게 */
+  margin: 0px 30px; /* 좌우 바깥쪽 여백 설정*/
+}
+
+#login-form input {
+  border: none; /* border 없앰 */
+  padding: 15px 0px; /* input에 위아래 패딩 */
+  font-size: 18px; /* font-size 크게 */
+  margin-bottom: 25px; /* input 바깥쪽 여백에 공간 */
+}
+
+#login-form input:not([type="submit"]) {
+  /* not은 "이 것을 제외한 나머지에 적용하고 싶어요" 라는 말이라서, #login-form input 에도 똑같이 쓰면 중복적용됨. not쪽에만 써야함. 
+    input type이 submit이 아닐때 [특성 선택자(attribute selector)]*/
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* border아래 실선(밑줄) */
+  transition: border-color 0.3s ease-in-out; /* border-color가 색이 변할때 애니메이션 추가 */
+}
+
+#login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  /* pseudo element → ::placeholder placeholder만을 꾸밀때 사용 */
+}
+
+#login-form input:focus {
+  border-color: var(--yellow);
+  /* login-form을 클릭할때 border bottom색깔 바뀌게 */
+}
+
+#login-form input[type="submit"] {
+  background-color: var(--yellow); /* input type이 submit일때 배경색 변경 */
+  cursor: pointer; /* 마우스 cursor올렸을때 바꿈 */
+  padding: 20px 0px; /* button에 안쪽 여백 줌 */
+  border-radius: 5px; /* 테두리 둥글게 */
+}
+
+#login-form a {
+  text-align: center; /* a링크 center에 오게 */
+  text-decoration: none; /* a링크 하이퍼링크 파란색 사라지게(모든 링크는 default값으로 색깔이 파랗게 되어있음) */
+  color: inherit; /* 색깔 부모에게서 상속 받음(default색 black) */
+  font-size: 13px;
+}

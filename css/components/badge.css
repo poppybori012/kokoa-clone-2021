@@ -1,0 +1,12 @@
+.badge {
+  background-color: tomato;
+  width: 30px;
+  height: 30px; /* nav__notification이 span(인라인)이라 width, height 가지지 못함. */
+  border-radius: 15px; /* 사각형을 원으로 만들고 싶으면 사각형의 width의 반을 값으로 쓰면 됨 */
+  display: flex; /* display: bolck; 때문에 적용이 안되므로 display block 지워줌 */
+  justify-content: center; /* 글씨 1 가운데 오게 하기 위하여 중심축, 교차축 center로 */
+  align-items: center;
+  /* display: block;  display를 block으로 바꾸어 준다(width, heigh가지게 하려고) */
+  color: white; /* 1 흰색으로 */
+  font-weight: 600;
+}

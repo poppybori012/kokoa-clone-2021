@@ -1,0 +1,54 @@
+.user-component {
+  justify-content: space-between; /* user-component 두개 column 분리 */
+}
+
+.user-component, /* user-component__column을 가진 div가 옆으로 정렬 */
+.user-component__column:first-child {
+  display: flex; /* img와 user-component__text 옆으로 정렬 */
+  align-items: center; /* img와 user-component__text 교차축 가운데 정렬 */
+}
+
+.user-component__avatar {
+  width: 70px; /* avatar큰버전, 중간버전, 작은버전 있으므로 중간버전으로 만들어서 크기조정 */
+  height: 70px;
+  border-radius: 30px;
+  margin-right: 20px; /* 이미지와 text사이에 간격 */
+}
+
+.user-component__title {
+  font-weight: 600;
+  font-size: 22px; /* user-component__title 큰버전, 중간버전, 작은버전 있으므로 중간버전을 기본값으로 만드는 기준으로 작성 */
+}
+
+.user-component__subtitle {
+  margin-top: 8px;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.5); /* user-component__subtitle text부분 만들기 */
+}
+
+.user-component__avater--xl {
+  width: 80px;
+  height: 80px;
+}
+
+.user-component__avater--sm {
+  width: 60px;
+  height: 60px;
+  border-radius: 25px;
+}
+
+.user-component__title--not-bold {
+  font-weight: 400;
+}
+
+.user-component__column:last-child {
+  color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* 빨간 동그라미1 오른쪽으로 가게 하기 위해, friends 2> 화면 깨짐*/
+}
+
+.user-component__time {
+  margin-bottom: 10px;
+  display: block;
+}

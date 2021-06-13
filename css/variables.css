@@ -1,0 +1,6 @@
+/* @import해주는것 잊지 말기 */
+:root {
+  --yellow: #fae100;
+  --horizontal-space: 25px;
+  --main-border: 1px solid rgba(0, 0, 0, 0.2); /* 회색 실선 자주 나와서 변수로 줌 */
+}

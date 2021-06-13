@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More - Kokoa Clone</title>
+  </head>
+  <body>
+    <div class="status-bar">
+      <!-- 상태바는 하나뿐 -->
+      <div class="status-bar__column">
+        <!-- class를 사용할 때는 BEM규칙(.Block__element--modifier)사용 권장. -->
+        <span>No service</span>
+        <i class="fas fa-wifi"></i>
+      </div>
+      <!-- Wifi Icon / icon: fontawesome홈페이지에서 검색후 복붙 -->
+      <div class="status-bar__column">
+        <span>18:43</span>
+      </div>
+      <div class="status-bar__column">
+        <span>110%</span>
+        <i class="fas fa-battery-full fa-lg"></i>
+        <!-- Battery Icon, fontawesome사이트에서 사이즈 확인후 fa-2x,fa-lg 이런식으로 써주면 아이콘 크기 바꿀 수 있음, fa는 어떤 아이콘이든 크기를 바꿔주는 class이름 -->
+        <i class="fas fa-bolt"></i>
+        <!-- Lightning Icon  -->
+      </div>
+    </div>
+
+    <header class="screen-header">
+      <h1 class="screen-header__title">More</h1>
+      <div class="screen-header__icons">
+        <span><i class="fas fa-search fa-lg"></i></span>
+        <span><i class="fas fa-music fa-lg"></i></span>
+        <span
+          ><a href="settings.html"><i class="fas fa-cog fa-lg"></i></a
+        ></span>
+      </div>
+    </header>
+
+    <main class="main-screen more-screen">
+      <!-- more에 icon row에만 마진 적용하고 싶어서 more-screen class작성-->
+      <div class="user-component">
+        <!-- photo, name, subtitle -->
+        <div class="user-component__column">
+          <img
+            src="https://cdn.pixabay.com/photo/2019/05/28/05/47/puppy-4234435__340.jpg"
+            class="user-component__avatar user-component__avater--xl"
+          />
+          <!-- 사진 -->
+          <div class="user-component__text">
+            <h4 class="user-component__title">Puppy</h4>
+            <h6 class="user-component__subtitle">+010 1234 1234</h6>
+          </div>
+        </div>
+        <!-- 좌측 column -->
+        <div class="user-component__column">
+          <i class="far fa-comment-alt fa-2x"></i>
+        </div>
+        <!-- 우측 column -->
+      </div>
+      <div class="icon-row">
+        <div class="icon-row_icon">
+          <i class="far fa-calendar"></i>
+          <span>Calender</span>
+        </div>
+        <div class="icon-row_icon">
+          <i class="far fa-smile-beam"></i>
+          <span>Emoticons</span>
+        </div>
+        <div class="icon-row_icon">
+          <i class="fas fa-paint-roller"></i>
+          <span>Themes</span>
+        </div>
+        <div class="icon-row_icon">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <span>Account</span>
+        </div>
+      </div>
+      <div class="more-suggestions">
+        <h4 class="more-suggestions__title">Suggestions</h4>
+        <div class="more-suggestions__icons">
+          <div class="more-suggestions__icon">
+            <div class="more-suggestions__icon-image">
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <span class="more-suggentions__icon-text">KaKao Story</span>
+          </div>
+          <div class="more-suggestions__icon">
+            <div class="more-suggestions__icon-image">
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <span class="more-suggentions__icon-text">KaKao Story</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <nav class="nav">
+      <!-- nav>ul>li*4>a tab 후 tab키 계속 누르면서 간편하게 작성 가능, 속성과 class 이름이 똑같아도 상관없음-->
+      <ul class="nav__list">
+        <li class="nav__btn">
+          <a class="nav__link" href="friends.html">
+            <i class="far fa-user fa-2x"></i>
+          </a>
+          <!-- chats.html에 있으면 chats icon은 비어 있어야함, fa-2x icon크게 Fontawesome 사이트 → Docs → Styling Sizing Icons에서 사이즈 확인가능-->
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="chats.html">
+            <span class="nav__notification badge">1</span>
+            <!-- 채팅창 1표시 -->
+            <i class="far fa-comment fa-2x"></i>
+            <!-- find.html에 있으면 chat icon이 비어 있어야 함 -->
+          </a>
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="find.html"
+            ><i class="fas fa-search fa-2x"></i
+          ></a>
+        </li>
+        <li class="nav__btn">
+          <a href="more.html" class="nav__link"
+            ><i class="fas fa-ellipsis-h fa-2x"></i
+          ></a>
+          <!-- 점 3개 이름은 ellipsis  -->
+        </li>
+      </ul>
+    </nav>
+
+    <div id="no-mobile">
+      <span>Your screen is too big ㅠㅠ </span>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- icon 추가: https://fontawesome.com/ → kit code <script>복사 → body tag 닫기 직전에 위치  -->
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat w/puppy - Kokoa Clone</title>
+  </head>
+  <body id="chat-screen">
+    <div class="status-bar">
+      <!-- 상태바는 하나뿐 -->
+      <div class="status-bar__column">
+        <!-- class를 사용할 때는 BEM규칙(.Block__element--modifier)사용 권장. -->
+        <span>No service</span>
+        <i class="fas fa-wifi"></i>
+      </div>
+      <!-- Wifi Icon / icon: fontawesome홈페이지에서 검색후 복붙 -->
+      <div class="status-bar__column">
+        <span>18:43</span>
+      </div>
+      <div class="status-bar__column">
+        <span>110%</span>
+        <i class="fas fa-battery-full fa-lg"></i>
+        <!-- Battery Icon, fontawesome사이트에서 사이즈 확인후 fa-2x,fa-lg 이런식으로 써주면 아이콘 크기 바꿀 수 있음, fa는 어떤 아이콘이든 크기를 바꿔주는 class이름 -->
+        <i class="fas fa-bolt"></i>
+        <!-- Lightning Icon  -->
+      </div>
+    </div>
+
+    <header class="alt-header">
+      <div class="alt-header__column">
+        <a href="chats.html">
+          <!-- < icon누르면 이전 페이지 가게 -->
+          <i class="fas fa-angle-left fa-3x"></i>
+        </a>
+      </div>
+      <div class="alt-header__column">
+        <h1 class="alt-header__title">Puppy❤</h1>
+      </div>
+      <div class="alt-header__column">
+        <span><i class="fas fa-search fa-lg"></i></span>
+        <span><i class="fas fa-bars fa-lg"></i></span>
+      </div>
+    </header>
+
+    <main class="main-screen main-chat">
+      <!-- main-screen을 사용하고 있어서 양옆패딩 사용중, chat class는 채팅창 반영 -->
+      <div class="chat__timestamp">Sunday, June 13, 2021</div>
+
+      <div class="message-row">
+        <img
+          src="https://cdn.pixabay.com/photo/2019/05/28/05/47/puppy-4234435__340.jpg"
+        />
+        <div class="message-row__content">
+          <!-- 이름, 채팅메세지, 시간 -->
+          <span class="message__author">Puppy❤</span>
+          <div class="message__info">
+            <span class="message__bubble">Hi!</span>
+            <span class="message__time">11:24</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-row message-row--own">
+        <div class="message-row__content">
+          <div class="message__info">
+            <span class="message__bubble">Hi! nice to meet you!</span>
+            <span class="message__time">11:24</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <form action="" class="reply">
+      <div class="reply__column">
+        <i class="far fa-plus-square fa-lg"></i>
+      </div>
+      <div class="reply__column">
+        <input type="text" placeholder="Write a message..." />
+        <i class="far fa-smile-wink fa-lg"></i>
+        <button>
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </form>
+
+    <div id="no-mobile">
+      <span>Your screen is too big ㅠㅠ </span>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- icon 추가: https://fontawesome.com/ → kit code <script>복사 → body tag 닫기 직전에 위치  -->
+  </body>
+</html>

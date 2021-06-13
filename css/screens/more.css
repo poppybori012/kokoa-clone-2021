@@ -1,0 +1,40 @@
+.more-screen .icon-row {
+  margin-top: 35px;
+}
+
+.more-suggestions {
+  margin-top: 50px;
+  border-top: var(--main-border);
+  padding-top: 40px;
+}
+
+.more-suggestions__title {
+  margin-bottom: 30px;
+}
+
+.more-suggestions__icons {
+  display: flex;
+}
+
+.more-suggestions__icon {
+  margin-right: 30px;
+  display: flex; /* more-suggestions__icon-image,text 가운데 정렬하기 위해 flex */
+  flex-direction: column; /* 위아래 정렬, 주축 교차축변경 교차축이 수평이 됨 */
+  align-items: center;
+}
+
+.more-suggestions__icon-image {
+  width: 60px;
+  height: 60px;
+  background-color: var(--yellow);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* icon-image 중앙에 오게 */
+  margin-bottom: 10px;
+}
+
+.more-suggestions__icon-image i {
+  font-size: 32px;
+  color: white;
+}

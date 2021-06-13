@@ -1,0 +1,33 @@
+/* styles.css에서 작성한 한 부분도 따로 css파일을 만들어 분리해주는 것이 깔끔하게 작업할 수 있는 방법이다. → CSS 코드를 여러 파일로 분할했다가 다시 합친다. */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"); /* https://fonts.google.com/ 원하는 font 선택 → select this style 선택 → Embed → @import css파일의 제일 상단에 위치 → body에 font-family 추가
+모든 폰트(굵기)를 추가하면 웹사이트 무거워지므로 필요한 것만 선택 */
+@import "reset.css"; /* ;붙이는거 까먹지 말기!! */
+@import "variables.css";
+
+/* components */
+@import "components/status-bar.css";
+@import "components/nav-bar.css";
+@import "components/screen-header.css";
+@import "components/alt-screen-header.css";
+@import "components/user-component.css";
+@import "components/badge.css";
+@import "components/icon-row.css";
+@import "components/no-mobile.css";
+
+/* screens */
+@import "screens/login.css";
+@import "screens/friends.css";
+@import "screens/find.css";
+@import "screens/more.css";
+@import "screens/settings.css";
+@import "screens/chat.css";
+
+body {
+  font-family: "Open Sans", sans-serif; /* styles.css 파일에는 font-family와 같이 모든 스크린에 적용될 수 있는 스타일을 써놓는다 */
+  /* height: 1000vh; nav-bar가 아래쪽에 잘 fixed 되어있는지 확인하기 위해  */
+  color: #2e363e; /* 검정색은 없으므로 색 전체 이렇게 지정 */
+}
+
+.main-screen {
+  padding: 0px var(--horizontal-space);
+}

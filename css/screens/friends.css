@@ -1,0 +1,57 @@
+#friends-display-link {
+  text-align: center; /* 글자 가운데에 오게 */
+  display: block;
+  /* display: flex;
+  justify-content: center; */ /* 이렇게 해도 글자 가운데에 옴 */
+  background-color: #fafafa; /* Friends' Name~ 배경색 지정 */
+  padding: 15px 0px; /* Friends' ~ 패딩지정 */
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-top: -15px; /*screen-header.css에 margin-bottom추가된 것이 있어서 frends-header랑 friends-display-link 간격 벌어져서 줄이기 */
+}
+
+#friends-display-link i {
+  color: rgba(0, 0, 0, 0.3); /* icone 색 지정 */
+}
+
+.friends-screen {
+  padding: 0px var(--horizontal-space);
+}
+
+.friends-screen__channel {
+  margin-top: 25px; /* channel 바깥쪽 경계 공간 */
+  border-top: var(--main-border);
+  padding-top: 15px; /* channel 안쪽 경계 공간 */
+}
+
+.friends-screen__channel-header {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between; /* channel과 ^ 양옆으로 붙어있게 */
+  color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes hideSplashScreen {
+  from {
+    opacity: 1; /* splash-screen 보이게 */
+  }
+  to {
+    opacity: 0; /* splash-screen 보이지 않게 */
+    visibility: hidden; /* splash-screen이 존재하는 상태이므로 마우스 클릭이 되지 않음, 마우스에 걸리지 않게 빠지게 하기 위해 hidden, html은 아직도 존재! 무언가 숨긴다거나 할때 이 테크닉 사용 하면 안돼(JS필요)*/
+  }
+}
+
+#splash-screen {
+  background-color: var(--yellow);
+  position: absolute; /* 가장 가까운 relaitve인 부모에 맞춰 정렬되나 여기선 이 div에 어떠한 부모도 있는걸 원치 않고 이 div가 body에 기준해서 정렬되길 바람*/
+  height: 100vh; /* 100vh = The screen's height(화면 높이의 100%) */
+  width: 100vw; /* 100vw = The screen's width (화면 너비의 100%)*/
+  /* 100% = 100% of the PARENT */
+  top: 0; /* 모든 부분 커버 */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* icon center에 오게 */
+  font-size: 132px;
+  animation: hideSplashScreen 0.4s ease-in-out forwards; /* 애니메이션의 마지막 값을 기억하고 싶다면 forwards라는 단어를 사용(마지막 keyframes를 기억) */
+  animation-delay: 2s;
+}

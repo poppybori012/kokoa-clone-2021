@@ -1,0 +1,28 @@
+.status-bar {
+  display: flex; /* 한줄로 만들기 */
+  position: fixed; /* status-bar를 계속 고정시키기 위해 */
+  top: 0; /* 고정시킬 쪽이 위 경우 */
+  width: 100%; /* 사라진 너비를 다시 갖게 하려고 */
+  justify-content: center; /* 중심축에서 아이템 배치, 중앙으로 몰림 */
+  padding: 5px 3px; /* 상단과 좌우에 공간있게 패딩줌 */
+}
+
+.status-bar__column {
+  width: 33%; /* 모든 status-bar__column 왼쪽으로 몰려서 범위 벌어짐, 왼쪽 위치할 박스는 왼쪽에 붙어서 정렬됨 */
+}
+.status-bar__column:first-child span {
+  margin-right: 5px; /* 여러 status-bar__column중 첫번째 자식에만 오른쪽 마진 줌(No service옆에 공간) */
+}
+.status-bar__column:nth-child(2) {
+  display: flex;
+  justify-content: center; /* 여러 status-bar__column중 두번째 자식(중앙에 위치할 박스)만 center에오게 적용(18:43) */
+}
+.status-bar__column:last-child {
+  display: flex;
+  justify-content: flex-end; /* 여러 status-bar__column중 마지막 자식만 오른쪽에 붙어서 정렬됨 */
+  align-items: center; /* 아이템 배치 일자로 */
+}
+
+.status-bar__column .fa-battery-full {
+  margin: 0px 5px; /* 배러티와 충전표시에 공간 */
+}

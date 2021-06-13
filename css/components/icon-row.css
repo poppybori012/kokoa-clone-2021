@@ -1,0 +1,18 @@
+.icon-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-row_icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* flex-direction:column;으로 교차축이 수평축으로 바뀌었으므로 교차축을 center로 맞춰줌 */
+}
+
+.icon-row_icon i {
+  font-size: 35px; /* html의 i class에서 fa-lg이런식으로 font-size키워도 되고, css에서 키워도 됨 */
+}
+
+.icon-row_icon span {
+  margin-top: 18px; /* icon과 span글자의 간격 */
+}

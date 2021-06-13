@@ -1,0 +1,207 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 500vh; /* 채팅창 scroll할 수 있게 하기 위해 */
+}
+
+#chat-screen .alt-header,
+#chat-screen .status-bar {
+  position: fixed; /* 어떤 요소를 fixed하면 이전의 box들과는 다른 layer를 갖게 됨 */
+  top: 0;
+  width: 100%; /* 사라진 너비를 다시 갖게 하려고 */
+  box-sizing: border-box; /* icon다 보이게 하기 위해 */
+  background-color: #abc1d1; /* 스크롤할때, status bar나 header의 뒤에 오는 것들이 안보이게 하기 위해서, chat__timestamp가 올라가면 안돼서 배경색 줌, another problem 상태바도 가려짐 */
+}
+
+/* z-index default: 0
+숫자가 작을수록 낮은 layer, 클수록 위의 layer
+fixed positon(고정된 위치), absolute position(절대적 위치)에 이용 가능. */
+
+#chat-screen .status-bar {
+  z-index: 2; /* status bar가 alt-header보다 위에 있음.*/
+}
+
+#chat-screen .alt-header {
+  /* top: 10px; chat header와, status-bar간격이지만 앞에서 status-bar고정 시켜줬으므로 생략함 */
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.main-chat {
+  margin-top: 130px; /* status-bar와 alt-header가 고정되어 있으므로 main-chat이 마진 탑을 가져야함, 고정된 요소(status-bar,alt-header)들에 의해 덮여 있음(main chat에 해당하는 box는 다른 layer여서)*/
+  display: flex; /* chat__timestamp flex로, 원래 div는 양 옆으로 긴데 display:flex;를 하면 div가 글자 크기에 맞춰서 줄어듬. 그리고 flex-direction에 column을 주면 다시 block이 가진 특성에 맞게 양 옆의 공간을 차지하게 됨. */
+  flex-direction: column; /* 여기 요소들이 서로 위아래 정렬 */
+  align-items: center; /* 중앙에 오게 */
+  animation: fadeIn 0.8s linear;
+}
+
+.chat__timestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%; /* width를 주지않으면 컨텐츠 크기만큼만 적용되서 flex박스에 끌려다니는데 width를 100%주면 화면 폭만큼의 크기를 갖음. */
+  display: flex; /* img, message-row__content옆으로 오게 */
+  margin-bottom: 25px; /* 메세지 두개 간격 */
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message__author {
+  margin-bottom: 5px; /* message__author은 span임 block으로 만들어 주어야 너비 가짐 */
+  display: block;
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end; /* 시간 text 오른쪽아래에 위치하게 하려고 */
+}
+.message__bubble {
+  background-color: white;
+  padding: 13px;
+  font-size: 18px;
+  border-radius: 15px;
+  border-top-left-radius: 0px; /* 각 모서리에 속성 줌*/
+  margin-right: 5px;
+}
+
+.message__time,
+.message__author {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.message-row--own {
+  justify-content: flex-end; /* message-row는 이미 display:flex; 지정해주었으므로  message-row--own만 flex-end해줌*/
+}
+
+.message-row--own .message__bubble {
+  background-color: var(--yellow);
+  border-top-right-radius: 0px;
+  border-top-left-radius: 15px;
+  margin-right: 0px;
+  margin-left: 5px;
+}
+
+/* 시간과 말풍선 바꾸는 방법 1. order은 오직 flex children에게만 적용, 그러나 자식 수가 많으면 어려움
+.message-row--own .message__bubble {
+  order: 1; 
+}
+
+.message-row--own .message__time {
+  order: 0;
+} */
+
+/* 시간과 말풍선 바꾸는 방법 2.  */
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px; /* icon, button 보이지 않게 하고 있어서 box-sizing: bordr-box해줌 */
+  box-sizing: border-box;
+  align-items: center; /* 수직축 일자로 */
+  transition: all 0.3s ease-in-out;
+}
+
+.reply .reply__column:first-child {
+  width: 10%; /* reply__column width 지정해주기 */
+}
+
+.reply .reply__column:last-child {
+  width: 90%;
+  position: relative; /* i, button에 absolute 적용 하려고 */
+}
+
+.reply i {
+  opacity: 0.5;
+}
+
+.reply input {
+  padding: 12px;
+  width: 100%; /* input은 reply__column안에 있으므로 reply__column의 width를 먼저 적용해 주어야지 input의 width: 100%가 적용됨 */
+  border: var(--main-border);
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.reply__column:last-child > i,
+.reply__column:last-child button {
+  position: absolute;
+  right: -23px;
+  top: 5px; /* absolute라 일일히 봐주어야 함 */
+}
+
+.reply__column:last-child > i {
+  right: 15px; /* icon은 오른쪽으로 더 갈 것 */
+  top: 13px;
+}
+
+.reply__column button {
+  background-color: var(--yellow);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.reply__column button i {
+  opacity: 1;
+}
+
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none; /* 브라우저의 기본 포커스 스타일 사라짐 */
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+  opacity: 0;
+}
+
+.reply:focus-within input {
+  width: 98vw;
+  transform: translateX(-13%) translateY(-80px);
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
+}
